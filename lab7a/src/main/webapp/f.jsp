@@ -14,7 +14,7 @@
         ResultSet rsTopics = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/AppLab", "root", "Pa$$word2");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/AppLab", "user", "pass");
             
             // Retrieve topics
             stmt = conn.createStatement();
