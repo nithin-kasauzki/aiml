@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong Number Finder</title>
+    <script>
+        // Function to check if a number is Armstrong
+        function isArmstrongNumber(number) {
+            const numString = number.toString();
+            const numDigits = numString.length;
+            let sum = 0;
+
+            for (let digit of numString) {
+                sum += Math.pow(parseInt(digit), numDigits);
+            }
+
+            return sum === number;
+        }
+
+        // Find and display Armstrong numbers between 100 and 5000
+        function displayArmstrongNumbers() {
+            let armstrongNumbers = [];
+
+            for (let i = 100; i <= 5000; i++) {
+                if (isArmstrongNumber(i)) {
+                    armstrongNumbers.push(i);
+                }
+            }
+
+            // Display the Armstrong numbers in the HTML page
+            const opdiv = document.getElementById("armstrongNumbers");
+            opdiv.innerHTML = "<p>Armstrong Numbers between 100 and 5000: " + armstrongNumbers.join(", ") + "</p>";
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Armstrong Number Finder</h2>
+
+    <div id="armstrongNumbers"></div>
+    <script>displayArmstrongNumbers();</script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Frame</title>
+</head>
+<body>
+
+<select id="item-list" onchange="displayImageAndPrice()">
+  <option value="img1.png" data-price="10">Item 1</option>
+  <option value="img2.png" data-price="20">Item 2</option>
+  <option value="img3.png" data-price="30">Item 3</option>
+  <option value="img.jpg" data-price="40">Item 4</option>
+</select>
+
+<script>
+  function displayImageAndPrice() {
+    var selectBox = document.getElementById("item-list");
+    var selectedItem = selectBox.options[selectBox.selectedIndex];
+    var imageUrl = selectedItem.value;
+    var price = selectedItem.getAttribute("data-price");
+
+    alert("Price: $" + price);
+
+    parent.right.document.getElementById("item-image").src = imageUrl;
+  }
+</script>
+
+</body>
+</html>

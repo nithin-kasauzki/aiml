@@ -1,0 +1,26 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ampersand Converter</title>
+    <script>
+        function convertAmpersand(field) {
+        // just the function is enough
+
+            // Get the value of the form field
+            var fieldValue = field.value;
+            // Replace all ampersands with "and"
+            fieldValue = fieldValue.replace(/&/g, "and");
+            // Set the modified value back to the form field
+            field.value = fieldValue;
+        }
+    </script>
+</head>
+<body>
+    <h1>Ampersand Converter</h1>
+    <label for="textField">Enter Text:</label>
+    <input type="text" id="textField" name="textField" onblur="convertAmpersand(this)">
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error Handler for Image Loading</title>
+    <script type="text/javascript">
+        function handleImageError() {
+            var img = document.getElementById("myImage");
+            img.alt = "Error Loading";
+        }
+    </script>
+</head>
+<body>
+    <h1>Error Handler for Image Loading</h1>
+    <img id="myImage" src="imageg.jpg" alt="Your Image" onerror="handleImageError()">
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers</title>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function findPrimes() {
+            let primes = [];
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            return primes;
+        }
+
+        function displayPrimes() {
+            let primes = findPrimes();
+            let textarea = document.getElementById("primeNumbers");
+            textarea.value = primes.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Numbers</h1>
+    <button onclick="displayPrimes()">Find Primes</button>
+    <textarea id="primeNumbers" rows="10" cols="50"></textarea>
+</body>
+</html>

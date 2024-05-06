@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Search</title>
+    <script>
+        function binarySearch() {
+            // Get the input values from the form
+            var elements = document.getElementById("elements").value.split(",");
+            var key = parseInt(document.getElementById("key").value);
+
+            // Convert the elements array to numbers
+            elements = elements.map(function(item) {
+                return parseInt(item);
+            });
+
+            // Perform binary search
+            var low = 0;
+            var high = elements.length - 1;
+            var found = false;
+            var index = -1;
+
+            while (low <= high) {
+                var mid = Math.floor((low + high) / 2);
+
+                if (elements[mid] === key) {
+                    found = true;
+                    index = mid;
+                    break;
+                } else if (elements[mid] < key) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+
+            // Display the search result
+            var result = document.getElementById("result");
+            if (found) {
+                result.value = "FOUND at index " + index;
+            } else {
+                result.value = "NOT FOUND";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Binary Search</h1>
+    <form>
+        <label for="elements">Enter elements (comma-separated):</label>
+        <input type="text" id="elements" name="elements"><br><br>
+        <label for="key">Enter key value:</label>
+        <input type="text" id="key" name="key"><br><br>
+        <input type="button" value="OK" onclick="binarySearch()">
+    </form>
+    <br>
+    <label for="result">Search Result:</label>
+    <input type="text" id="result" name="result" readonly>
+</body>
+</html>

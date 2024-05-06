@@ -1,0 +1,18 @@
+<!ELEMENT bank (account*, customer*, depositor*)>
+<!ELEMENT account (#PCDATA)>
+<!ATTLIST account
+    account-number CDATA #REQUIRED
+    branch-name CDATA #REQUIRED
+    balance CDATA #REQUIRED
+>
+<!ELEMENT customer (#PCDATA)>
+<!ATTLIST customer
+    customer-name CDATA #REQUIRED
+    customer-street CDATA #REQUIRED
+    customer-city CDATA #REQUIRED
+>
+<!ELEMENT depositor (#PCDATA)>
+<!ATTLIST depositor
+    account-number CDATA #REQUIRED
+    customer-name CDATA #REQUIRED
+>

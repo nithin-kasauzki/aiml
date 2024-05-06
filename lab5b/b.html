@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Store</title>
+  <style>
+    #container {
+      display: flex;
+    }
+    #left-frame, #right-frame {
+      border: 1px solid black;
+      flex: 1;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    img {
+      width: 60px;
+      height: 40px;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <iframe id="left-frame" src="b_left.html" name="left"></iframe>
+  <iframe id="right-frame" src="b_right.html" name="right"></iframe>
+</div>
+
+</body>
+</html>

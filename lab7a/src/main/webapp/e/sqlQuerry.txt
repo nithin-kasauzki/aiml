@@ -1,0 +1,13 @@
+-- Create Employee table
+CREATE TABLE Employee (
+    Eid INT PRIMARY KEY,
+    Ename VARCHAR(100),
+    Dept VARCHAR(100),
+    Doj DATE,
+    Salary DECIMAL(10, 2)
+);
+
+-- Insert sample values
+INSERT INTO Employee (Eid, Ename, Dept, Doj, Salary) VALUES (1, 'John Doe', 'IT', '2022-01-01', 50000.00);
+INSERT INTO Employee (Eid, Ename, Dept, Doj, Salary) VALUES (2, 'Jane Smith', 'HR', '2022-02-01', 60000.00);
+INSERT INTO Employee (Eid, Ename, Dept, Doj, Salary) VALUES (3, 'Alice Johnson', 'Finance', '2022-03-01', 55000.00);

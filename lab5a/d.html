@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>Display HTML Elements</title>
+  
+</head>
+<body>
+
+<script>
+  function displayAllElements() {
+    var allElements = document.all;
+
+    // Create a div to display the elements
+    var displayDiv = document.createElement('div');
+    displayDiv.style.padding = '10px';
+    displayDiv.style.border = '1px solid #ccc';
+
+    // Iterate through all elements and display their tag names
+    for (var i = 0; i < allElements.length; i++) {
+      var element = allElements[i];
+      var elementInfo = document.createElement('p');
+      elementInfo.textContent = 'Element ' + (i + 1) + ': ' + element.tagName;
+      displayDiv.appendChild(elementInfo);
+    }
+
+    // Append the display div to the body
+    document.body.appendChild(displayDiv);
+  }
+
+  // Call the function when the window is fully loaded
+  window.onload = displayAllElements;
+</script>
+
+</body>
+</html>

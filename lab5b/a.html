@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Display</title>
+    <style>
+        #upperFrame {
+            height: 50%;
+            border: 1px solid black;
+            overflow: hidden; /* Added overflow to prevent scrollbars */
+        }
+        
+        #lowerFrame {
+            height: 50%;
+            border: 1px solid black;
+        }
+        
+        img {
+            width: 180px;
+            height: 160px;
+            object-fit: contain;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
+        }
+    </style>
+    <script>
+        function displayImage(imageUrl) {
+            var lowerFrame = document.getElementById("lowerFrame");
+            lowerFrame.innerHTML = "<img src='" + imageUrl + "' onclick='clearImage()' />";
+        }
+        
+        function clearImage() {
+            var lowerFrame = document.getElementById("lowerFrame");
+            lowerFrame.innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <div id="upperFrame">
+        <img src="img1.png" onclick="displayImage('img1.png')" />
+        <img src="img2.png" onclick="displayImage('img2.png')" />
+        <img src="img3.png" onclick="displayImage('img3.png')" />
+    </div>
+    <div id="lowerFrame" onclick="clearImage()">
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integer Power Calculation</title>
+    <script>
+        function Integer_Power(base, exponent) {
+            let result = 1;
+            for (let i = 0; i < exponent; i++) {
+                result *= base;
+            }
+            return result;
+        }
+
+        function calculatePower() {
+            const base = parseInt(document.getElementById("base").value);
+            const exponent = parseInt(document.getElementById("exponent").value);
+            const power = Integer_Power(base, exponent);
+            document.getElementById("result").innerHTML = `Result: ${power}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Integer Power Calculation</h1>
+    <form>
+        <label for="base">Base:</label>
+        <input type="text" id="base" name="base"><br><br>
+        <label for="exponent">Exponent:</label>
+        <input type="text" id="exponent" name="exponent"><br><br>
+        <button type="button" onclick="calculatePower()">Calculate</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>

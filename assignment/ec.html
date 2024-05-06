@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+    <script type="text/javascript">
+        function isPrime(number, limit) {
+            if (number <= 1) {
+                return false;
+            }
+
+            for (let i = 2; i <= limit; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        function findPrimes() {
+            let primesSquareRoot = [];
+            let primesHalf = [];
+            let tArea = document.getElementById("result");
+            let startSquareRoot = performance.now();
+            //sqrt
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrime(i,Math.sqrt(i))) {
+                    primesSquareRoot.push(i);
+                }
+            }
+            let endSquareRoot = performance.now();
+            //n/2
+            let startHalf = performance.now();
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrimeHalf(i,i/2)) {
+                    primesHalf.push(i);
+                }
+            }
+            let endHalf = performance.now();
+
+            tArea.value = "Using Square Root: " + (endSquareRoot - startSquareRoot) + " milliseconds\n";
+            tArea.value += "Prime Numbers: " + primesSquareRoot.join(", ") + "\n\n";
+            tArea.value += "Using n/2: " + (endHalf - startHalf) + " milliseconds\n";
+            tArea.value += "Prime Numbers: " + primesHalf.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h2>Prime Number Finder</h2>
+    <button onclick="findPrimes()">Find Prime Numbers</button>
+    <br>
+    <textarea id="result" rows="30" cols="50" readonly></textarea>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Employee SYSTEM "d.dtd">
+<Employee>
+  <Emp>
+    <name>Roshan</name>
+    <eid>E101</eid>
+    <department>HR</department>
+    <doj>09-SEP-1999</doj>
+    <salary>68,000</salary>
+  </Emp>
+  <Emp>
+    <name>Mary</name>
+    <eid>E233</eid>
+    <department>Accounts</department>
+    <doj>06-AUG-2001</doj>
+    <salary>24,000</salary>
+  </Emp>
+  <Emp>
+    <name>Sunil</name>
+    <eid>E521</eid>
+    <department>Engineering</department>
+    <doj>04-NOV-2009</doj>
+    <salary>42,000</salary>
+  </Emp>
+</Employee>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #movingText, #movableImage {
+      position: absolute;
+    }
+  </style>
+  <title>Mouse Tracking</title>
+</head>
+<body>
+
+  <script>
+    function displayMouseCoordinates(event) {
+      // Update image position
+      movableImage.style.left = event.x + 'px'; // Adjust for image width
+      movableImage.style.top = event.y+ 'px'; // Adjust for image height
+    }
+    function disableMouseFollow() {
+              movableImage.style.display = "none";
+              // Remove the mousemove event listener
+              document.removeEventListener("mousemove", disableMouseFollow);
+          }
+  
+    document.addEventListener('mousemove', displayMouseCoordinates);
+  </script>
+
+<h1>hi</h1>
+
+<img id="movableImage" src="img.jpg" alt="Movable Image" width="100" height="100">
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Sorting</title>
+    <script>
+        function sortStrings() {
+            var inputStrings = document.getElementById("inputStrings").value.split(",");
+            var sortedStrings = inputStrings.sort();
+            var stringsStartingWithE = sortedStrings.filter(function(string) {
+                return string.charAt(0).toLowerCase() === 'e';
+            });
+
+            document.getElementById("sortedOutput").innerHTML = "Sorted Strings: " + sortedStrings.join(", ");
+            document.getElementById("eStringsOutput").innerHTML = "Strings starting with 'e': " + stringsStartingWithE.join(", ");
+        }
+    </script>
+</head>
+<body style="padding: 10%;">
+    <h1>String Sorting</h1>
+    <form>
+        <label for="inputStrings">Enter comma-separated strings:</label>
+        <input type="text" id="inputStrings" name="inputStrings">
+        <button style="margin: 20px;" type="button" onclick="sortStrings()">Sort Strings</button>
+    </form>
+    <div id="sortedOutput"></div>
+    <div id="eStringsOutput"></div>
+</body>
+</html>

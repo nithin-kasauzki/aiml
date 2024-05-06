@@ -1,0 +1,27 @@
+/* User Content CSS File */
+
+body {
+    background-color: white;
+    color: black;
+  }
+  
+  a:link {
+    color: blue;
+  }
+  
+  a:visited {
+    color: purple;
+  }
+  
+  a:active {
+    color: red;
+  }
+  
+  input {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+  
+
+  

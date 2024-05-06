@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #movingText, #movableImage {
+      position: absolute;
+    }
+  </style>
+  <title>Mouse Tracking</title>
+</head>
+<body>
+
+<script>
+  function displayMouseCoordinates(event) {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    const textElement = document.getElementById('movingText');
+    const imageElement = document.getElementById('movableImage');
+
+    // Update text position and content
+    textElement.style.left = mouseX + 'px';
+    textElement.style.top = mouseY + 'px';
+    textElement.innerHTML = `Mouse Coordinates: (${mouseX}, ${mouseY})`;
+
+    // Update image position
+    imageElement.style.left = (mouseX - 50) + 'px'; // Adjust for image width
+    imageElement.style.top = (mouseY - 50) + 'px'; // Adjust for image height
+  }
+
+  document.addEventListener('mousemove', displayMouseCoordinates);
+</script>
+
+<p id="movingText"></p>
+
+
+<img id="movableImage" src="img.jpg" alt="Movable Image" width="100" height="100">
+
+</body>
+</html>

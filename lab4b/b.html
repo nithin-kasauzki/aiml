@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date and Age Calculator</title>
+    <script>
+        function calculateDates() {
+            var currentDate = new Date();
+            
+            
+                var previousDate = new Date(currentDate);
+                previousDate.setDate(currentDate.getDate() - 7);
+                
+
+            
+                var futureDate = new Date(currentDate);
+                futureDate.setDate(currentDate.getDate() + 7);
+                
+
+            // Display the dates
+            var output = "";
+            
+            output += "Previous Date: " + previousDate.getDate() + " " + getMonthName(previousDate.getMonth()) + " " + previousDate.getFullYear() + "<br>";
+            
+            output += "<br>";
+            
+            output += "Future Date: " + futureDate.getDate() + " " + getMonthName(futureDate.getMonth()) + " " + futureDate.getFullYear() + "<br>";
+            
+
+            document.getElementById("result").innerHTML = output;
+        }
+
+        function calculateAge() {
+            var dob = new Date(document.getElementById("dob").value);
+            var currentDate = new Date();
+
+            var years = currentDate.getFullYear() - dob.getFullYear();
+            var months = currentDate.getMonth() - dob.getMonth();
+            var days = currentDate.getDate() - dob.getDate();
+
+            if (months < 0 || (months === 0 && days < 0)) {
+                years--;
+                months += 12;
+            }
+
+            if (days < 0) {
+                var previousMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 0);
+                days += previousMonthDate.getDate();
+                months--;
+            }
+
+            document.getElementById("age").innerHTML = "Age: " + years + " Years, " + months + " Months, " + days + " Days";
+        }
+
+        function getMonthName(month) {
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return monthNames[month];
+        }
+    </script>
+</head>
+<body style="margin: 20px;">
+    <h1>Date Calculator</h1>
+    <button onclick="calculateDates()">Calculate Dates</button>
+    <div id="result"></div>
+
+    <h1>Age Calculator</h1>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <p></p>
+    <div id="age"></div>
+</body>
+</html>

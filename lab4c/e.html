@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge Sort</title>
+    <script>
+        // Function to perform Merge Sort
+        function mergeSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+            
+            const mid = Math.floor(arr.length / 2);
+            const left = arr.slice(0, mid);
+            const right = arr.slice(mid);
+            
+            return merge(mergeSort(left), mergeSort(right));
+        }
+        
+        // Function to merge two sorted arrays
+        function merge(left, right) {
+            let result = [];
+            let i = 0;
+            let j = 0;
+            
+            while (i < left.length && j < right.length) {
+                if (left[i] < right[j]) {
+                    result.push(left[i]);
+                    i++;
+                } else {
+                    result.push(right[j]);
+                    j++;
+                }
+            }
+            
+            return result.concat(left.slice(i)).concat(right.slice(j));
+        }
+        
+        // Function to handle the button click event
+        function sortNumbers() {
+            const input = document.getElementById("numbers").value;
+            const numbers = input.split(",").map(Number);
+            
+            const sortedNumbers = mergeSort(numbers);
+            
+            document.getElementById("result").innerHTML = "Sorted Numbers: " + sortedNumbers.join(", ");
+        }
+    </script>
+</head>
+<body style="text-align: center;">
+    <h1>Merge Sort</h1>
+    <label for="numbers">Enter numbers (comma-separated):</label>
+    <p></p>
+    <input type="text" id="numbers">
+    <p></p>
+    <button onclick="sortNumbers()">Sort</button>
+    <p id="result"></p>
+</body>
+</html>

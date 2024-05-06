@@ -1,0 +1,12 @@
+<!ELEMENT letter (date, addressee, greeting, paragraph, list, closing, signature, name)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT addressee (name, address_one, address_two)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address_one (#PCDATA)>
+<!ELEMENT address_two (#PCDATA)>
+<!ELEMENT greeting (#PCDATA)>
+<!ELEMENT paragraph (#PCDATA)>
+<!ELEMENT list (item+)>
+<!ELEMENT item (#PCDATA)>
+<!ELEMENT closing (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>

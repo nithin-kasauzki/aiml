@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Effects</title>
+<style>
+  img {
+    margin: 20px;
+    max-width: 400px;
+    max-height: 400px;
+  }
+</style>
+</head>
+<body>
+
+<img id="myImage" src="img.jpg" alt="Original Image">
+
+<button onclick="flipHorizontally()">Flip Horizontal</button>
+<button onclick="flipVertically()">Flip Vertical</button>
+<button onclick="applyChromaFilter()">Apply Chroma Filter</button>
+<button onclick="applyInvertFilter()">Apply Invert Filter</button>
+<button onclick="applyGrayFilter()">Apply Gray Filter</button>
+<button onclick="applyXrayFilter()">Apply Xray Filter</button>
+<button onclick="resetFilters()">Reset Filters</button>
+
+<script>
+  function flipHorizontally() {
+    var image = document.getElementById("myImage");
+    image.style.transform = "scaleX(-1)";
+  }
+
+  function flipVertically() {
+    var image = document.getElementById("myImage");
+    image.style.transform = "scaleY(-1)";
+  }
+
+  function applyChromaFilter() {
+    var image = document.getElementById("myImage");
+    image.style.filter = "opacity(50%)";
+  }
+
+  function applyInvertFilter() {
+    var image = document.getElementById("myImage");
+    image.style.filter = "invert(100%)";
+  }
+
+  function applyGrayFilter() {
+    var image = document.getElementById("myImage");
+    image.style.filter = "grayscale(100%)";
+  }
+
+  function applyXrayFilter() {
+    var image = document.getElementById("myImage");
+    image.style.filter = "sepia(100%)";
+  }
+
+  function resetFilters() {
+    var image = document.getElementById("myImage");
+    image.style.transform = "none";
+    image.style.filter = "none";
+  }
+</script>
+
+</body>
+</html>

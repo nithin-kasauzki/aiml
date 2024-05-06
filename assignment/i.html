@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telephone Number Parser</title>
+    <script type="text/javascript">
+        function parsePhoneNumber() {
+            var phoneNumber = document.getElementById("phoneNumber").value;
+
+            // Remove non-digit characters
+            var tokens = phoneNumber.split(/\D+/);
+
+            // Display the area code and seven-digit phone number
+            var areaCode = tokens[1];
+            var sevenDigitNumber = tokens[2] + tokens[3] ;
+
+            // Display the extracted parts in separate text fields
+            document.getElementById("areaCode").innerText = areaCode;
+            document.getElementById("phoneNumberDigits").innerText = sevenDigitNumber;
+        }
+    </script>
+</head>
+<body>
+    <h1>Telephone Number Parser</h1>
+    <label for="phoneNumber">Enter Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="(555) 555-5555">
+    <br><br>
+    <button onclick="parsePhoneNumber()">Parse</button>
+    <br><br>
+    <label for="areaCode">Area Code:</label>
+    <p id="areaCode" ></p>
+    <br><br>
+    <label for="phoneNumberDigits">Phone Number:</label>
+    <p  id="phoneNumberDigits" ></p>
+</body>
+</html>

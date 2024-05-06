@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clickable Elements</title>
+    <style>
+        #deitelImage {
+            width: 200px; /* Adjust the width as needed */
+            cursor: pointer;
+        }
+        table {
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Clickable Image -->
+    <img id="deitelImage" src="deitel.gif" onclick="imageClick()">
+    
+    <!-- Clickable Table -->
+    <table onclick="tableClick()">
+        <tr>
+            <td>This is a clickable table</td>
+        </tr>
+    </table>
+
+    <script>
+        function imageClick() {
+            alert("You clicked the image.");
+            event.preventDefault(); // Prevent default behavior
+            event.cancelBubble(); // Stop event propagation
+            event.returnValue = true; // Set event object to true
+        }
+
+        function tableClick() {
+            alert("You clicked the table.");
+            event.preventDefault(); // Prevent default behavior
+            event.stopPropagation(); // Stop event propagation
+            event.returnValue = true; // Set event object to true
+        }
+    </script>
+</body>
+</html>

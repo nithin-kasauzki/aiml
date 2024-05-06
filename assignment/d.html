@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Embedded JavaScript Example</title>
+
+<script type="text/javascript">
+    var totalCharge = 0.00;
+    
+    function calculateCharge() {
+        var hours = hoursParked.value;
+        var minFee = 2.00;
+        var maxDailyFee = 10.00;
+        var additionalHourlyFee = 0.50;
+        var charge;
+    
+        if (hours <= 3) {
+            charge = minFee;
+        } else if (hours <= 24) {
+            charge = minFee + additionalHourlyFee * (hours - 3);
+        } else {
+            charge = maxDailyFee;
+        }
+    
+        totalCharge += charge;
+        charges.innerText = "Charge for current customer: $" + charge.toFixed(2) ;
+        Totalcharge.innerText="Total charge: $" + totalCharge.toFixed(2);
+    }
+    </script>
+</head>
+<body>
+
+<h2>Parking Charge Calculator</h2>
+
+<p>Enter hours parked : <input type="number" name="hoursParked" id="hoursParked"></p>
+<input type="button" value="Calculate Charge" onclick="calculateCharge()">
+<p id="charges"></p>
+<p id="Totalcharge"></p>
+
+
+</body>
+</html>

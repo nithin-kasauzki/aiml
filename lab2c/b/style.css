@@ -1,0 +1,15 @@
+/* style.css */
+
+/* Header 1 and Header 2 */
+h1, h2 {
+  color: green;
+  font-size: 22pt;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Paragraph */
+p {
+  color: black;
+  font-size: 12pt;
+  font-family: "Times New Roman", Times, serif;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date of Birth Form</title>
+    <style type="text/css">
+        label {
+            margin-right: 10px; /* Add space to the right of labels */
+        }
+        input[type="number"] {
+            width: 150px; /* Increase input box width */
+            margin-right: 10px; /* Add space to the right of input boxes */
+        }
+    </style>
+    <script type="text/javascript">
+        function calculateAge() {
+            var day = f1.day.value;
+            var month = f1.month.value;
+            var year = f1.year.value;
+
+            var birthDate = new Date(year, month - 1, day);
+            var today = new Date();
+            
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            var nextBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+            
+            if (today > nextBirthday) {
+                nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+            }
+            
+            var daysRemaining = Math.ceil((nextBirthday - today) / (1000 * 60 * 60 * 24));
+            
+            alert("Your age is: " + age + " years\nDays remaining until your next birthday: " + daysRemaining + " days");
+        }
+    </script>
+</head>
+<body>
+    <h1><u>Enter Your Date of Birth</u></h1>
+    <form name="f1">
+        Day        :
+        <input type="number" id="day" name="day" min="1" max="31">
+        <br><br>
+        Month      :
+        <input type="number" id="month" name="month" min="1" max="12">
+        <br><br>
+        Year       :
+        <input type="number" id="year" name="year" min="1900" max="2022">
+        <br><br>
+        <input type="submit" value="OK" onclick="calculateAge()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pets SYSTEM "b.dtd">
+<pets>
+    <pet>
+        <name>Tilly</name>
+        <age>14</age>
+        <type>cat</type>
+        <color>silver</color>
+    </pet>
+    <pet>
+        <name>Amanda</name>
+        <age>10</age>
+        <type>dog</type>
+        <color>brown</color>
+    </pet>
+    <pet>
+        <name>Jack</name>
+        <age>3</age>
+        <type>cat</type>
+        <color>black</color>
+    </pet>
+    <pet>
+        <name>Blake</name>
+        <age>12</age>
+        <type>dog</type>
+        <color>blue</color>
+    </pet>
+    <pet>
+        <name>Loosey</name>
+        <age>1</age>
+        <type>cat</type>
+        <color>brown</color>
+    </pet>
+    <pet>
+        <name>Stop</name>
+        <age>5</age>
+        <type>pig</type>
+        <color>brown</color>
+    </pet>
+</pets>

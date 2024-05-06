@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="bank">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account"
+                    type="accountType"
+                    minOccurs="0"
+                    maxOccurs="unbounded" />
+                <xs:element name="customer"
+                    type="customerType"
+                    minOccurs="0"
+                    maxOccurs="unbounded" />
+                <xs:element name="depositor"
+                    type="depositorType"
+                    minOccurs="0"
+                    maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="accountType">
+        <xs:attribute name="account-number"
+            type="xs:string"
+            use="required" />
+        <xs:attribute name="branch-name"
+            type="xs:string"
+            use="required" />
+        <xs:attribute name="balance"
+            type="xs:string"
+            use="required" />
+    </xs:complexType>
+    <xs:complexType name="customerType">
+        <xs:attribute name="customer-name"
+            type="xs:string"
+            use="required" />
+        <xs:attribute name="customer-street"
+            type="xs:string"
+            use="required" />
+        <xs:attribute name="customer-city"
+            type="xs:string"
+            use="required" />
+    </xs:complexType>
+    <xs:complexType name="depositorType">
+        <xs:attribute name="account-number"
+            type="xs:string"
+            use="required" />
+        <xs:attribute name="customer-name"
+            type="xs:string"
+            use="required" />
+    </xs:complexType>
+</xs:schema>

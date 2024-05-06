@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Text Analysis</title>
+</head>
+<body>
+
+<h2>Enter Text:</h2>
+<textarea id="textInput" rows="10" cols="50"></textarea>
+<br>
+<button onclick="analyzeText()">Analyze Text</button>
+
+<h2>Word Lengths and Occurrences</h2>
+<table id="wordLengthTable" border="1">
+  <tr>
+    <th>Word Length</th>
+    <th>Occurrences</th>
+  </tr>
+</table>
+
+<script type="text/javascript">
+function analyzeText() {
+    const text = document.getElementById("textInput").value.toLowerCase();
+    
+    // Count occurrences of words of different lengths
+    const wordLengthCount = {};
+    const words = text.match(/\b\w+\b/g);
+    if (words) {
+        words.forEach(word => {
+            const length = word.length;
+            wordLengthCount[length] = (wordLengthCount[length] || 0) + 1;
+        });
+    }
+    
+    // Display occurrences of words of different lengths
+    const wordLengthTable = document.getElementById("wordLengthTable");
+    wordLengthTable.innerHTML = "<tr><th>Word Length</th><th>Occurrences</th></tr>";
+    for (let length in wordLengthCount) {
+        const row = `<tr><td>${length}</td><td>${wordLengthCount[length]}</td></tr>`;
+        wordLengthTable.innerHTML += row;
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      overflow: hidden; /* Prevent scrollbars */
+    }
+  </style>
+  <title>Random Moving Text</title>
+</head>
+<body>
+
+<script>
+  function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  function moveText() {
+    const textElement = document.getElementById('movingText');
+    
+    const screenWidth = window.innerWidth - textElement.clientWidth;
+    const screenHeight = window.innerHeight - textElement.clientHeight;
+
+    const newPositionX = getRandomNumber(0, screenWidth);
+    const newPositionY = getRandomNumber(0, screenHeight);
+
+    const newColor = getRandomColor();
+    const newSize = getRandomNumber(10, 40); // Adjust the range as needed
+
+    textElement.style.left = newPositionX + 'px';
+    textElement.style.top = newPositionY + 'px';
+    textElement.style.color = newColor;
+    textElement.style.fontSize = newSize + 'px';
+  }
+
+  // Call moveText function at regular intervals (e.g., every 2 seconds)
+  setInterval(moveText, 2000);
+</script>
+
+<p id="movingText" style="position: absolute;">Random Moving Text</p>
+
+</body>
+</html>

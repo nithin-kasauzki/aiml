@@ -1,0 +1,26 @@
+CREATE TABLE Topics (
+    topicID INT AUTO_INCREMENT PRIMARY KEY,
+    topicName VARCHAR(100)
+);
+
+INSERT INTO Topics (topicName) VALUES
+('Java'),
+('Python'),
+('JavaScript');
+
+
+CREATE TABLE FAQ (
+    faqID INT AUTO_INCREMENT PRIMARY KEY,
+    topicID INT,
+    question VARCHAR(255),
+    answer TEXT,
+    FOREIGN KEY (topicID) REFERENCES Topics(topicID)
+);
+
+INSERT INTO FAQ (topicID, question, answer) VALUES
+(1, 'What is Java?', 'Java is a high-level programming language developed by Sun Microsystems.'),
+(1, 'What are the main features of Java?', 'Java is platform-independent, object-oriented, and has automatic memory management.'),
+(2, 'What is Python?', 'Python is an interpreted, high-level, general-purpose programming language.'),
+(2, 'What are some applications of Python?', 'Python is used for web development, data analysis, artificial intelligence, and more.'),
+(3, 'What is JavaScript?', 'JavaScript is a scripting language used for web development.'),
+(3, 'What are some popular JavaScript frameworks?', 'Popular JavaScript frameworks include React, Angular, and Vue.js.');

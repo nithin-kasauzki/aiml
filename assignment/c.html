@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Encryption and Decryption</title>
+<script type="text/javascript">
+function encryptAndDecrypt() {
+    var input = prompt("Enter a four-digit integer:");
+
+    // Check if input is a four-digit integer
+    if (input.length !== 4 || isNaN(input)) {
+        alert("Please enter a valid four-digit integer.");
+        return;
+    }
+
+    var encrypted = encrypt(input);
+    var decrypted = decrypt(encrypted);
+
+    var output = "Encrypted Integer: " + encrypted + "<br>";
+    output += "Decrypted Integer: " + decrypted;
+
+    output.innerText = output;
+}
+
+function encrypt(input) {
+    var digits = input.split('').map(Number);
+    var encryptedDigits = digits.map(function(digit) {
+        return (digit + 7) % 10;
+    });
+
+    // Swap first with third digit, and second with fourth digit
+    var temp = encryptedDigits[0];
+    encryptedDigits[0] = encryptedDigits[2];
+    encryptedDigits[2] = temp;
+
+    temp = encryptedDigits[1];
+    encryptedDigits[1] = encryptedDigits[3];
+    encryptedDigits[3] = temp;
+
+    return encryptedDigits.join('');
+}
+
+function decrypt(input) {
+    var encryptedDigits = input.split('').map(Number);
+
+    // Swap back to original positions
+    var temp = encryptedDigits[0];
+    encryptedDigits[0] = encryptedDigits[2];
+    encryptedDigits[2] = temp;
+
+    temp = encryptedDigits[1];
+    encryptedDigits[1] = encryptedDigits[3];
+    encryptedDigits[3] = temp;
+
+    // Decrypt each digit
+    var decryptedDigits = encryptedDigits.map(function(digit) {
+        return (digit + 3) % 10;
+    });
+
+    return decryptedDigits.join('');
+}
+
+</script>
+</head>
+<body>
+<h2>Data Encryption and Decryption</h2>
+<button onclick="encryptAndDecrypt()">Encrypt and Decrypt</button>
+<p id="output"></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Names</title>
+</head>
+<body>
+
+<div id="colors"></div>
+
+<script type="text/javascript">
+// Create an array of size 3 with initial color names
+let colorsArray = ["Red", "Green", "Blue"];
+
+// Change the size of the array to 5 and add two more color names
+colorsArray.length = 5;
+colorsArray[3] = "Purple";
+colorsArray[4] = "Black";
+
+// Display all the array elements with their respective colors
+let colorsDiv = document.getElementById("colors");
+colorsArray.forEach(color => {
+    let colorDiv = document.createElement("div");
+    colorDiv.textContent = color;
+    colorDiv.style.color = color; // Set text color
+    colorsDiv.appendChild(colorDiv);
+});
+</script>
+
+</body>
+</html>

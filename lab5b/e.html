@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Events</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+      border: 1px solid black;
+    }
+    td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<img id="click-image" src="img.jpg" alt="Click Me" style="width: 200px; height: auto; margin: 20px; cursor: pointer;">
+<table id="click-table">
+  <tr>
+    <td>Click Me</td>
+  </tr>
+</table>
+
+<script>
+  // Click event handler for the image
+  document.getElementById('click-image').addEventListener('click', function(event) {
+    event.stopPropagation();
+    alert('You clicked the image');
+  }, true);
+
+  // Click event handler for the table
+  document.getElementById('click-table').addEventListener('click', function(event) {
+    event.stopPropagation();
+    alert('You clicked the table');
+  }, true);
+</script>
+
+</body>
+</html>

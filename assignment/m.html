@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Follow Text</title>
+    <style type="text/css">
+        #followText {
+            position: absolute;
+            /*pointer-events: none; Ensure the text doesn't interfere with mouse events */
+        }
+    </style>
+</head>
+<body onmousemove="moveText(event)" ondblclick="disableMouseFollow()">
+    <div id="followText">Follow me!</div>
+
+    <script type="text/javascript">
+        function moveText(event) {
+            var followText = document.getElementById("followText");
+            followText.style.display = "block";
+            followText.style.left = event.x + "px";
+            followText.style.top = event.y + "px";
+        }
+
+        function disableMouseFollow() {
+            var followText = document.getElementById("followText");
+            followText.style.display = "none";
+            // Remove the mousemove event listener
+            document.removeEventListener("mousemove", moveText);
+        }
+
+        // Add event listener for mousemove initially
+        document.addEventListener("mousemove", moveText);
+    </script>
+    <h1> Mouse move</h1>
+</body>
+</html>

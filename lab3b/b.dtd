@@ -1,0 +1,6 @@
+<!ELEMENT pets (pet+)>
+<!ELEMENT pet (name, age, type, color)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT color (#PCDATA)>

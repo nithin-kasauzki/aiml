@@ -1,0 +1,21 @@
+/* External CSS Document */
+
+body {
+    font-size: 12px;
+  }
+  
+  h1 {
+    font-size: 1.2em;
+    border: 1px solid black;
+    padding: 1em;
+    background-color: pink;
+  }
+  
+  p {
+    font-size: 0.9em;
+    border: 1px solid black;
+    padding: 1em;
+    color: white;
+    background-color: gray;
+  }
+  

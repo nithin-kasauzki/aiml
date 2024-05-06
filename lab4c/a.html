@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation</title>
+    <style>
+        p {
+            border: 1px solid black;
+            width: 50%;
+        }
+    </style>
+    <script>
+        function searchSubstring() {
+            var str = document.getElementById("inputString").value;
+            var substring = document.getElementById("inputSubstring").value;
+            var index = str.indexOf(substring);
+            if (index !== -1) {
+                document.getElementById("searchResult").innerHTML = "Substring found at index: " + index;
+            } else {
+                document.getElementById("searchResult").innerHTML = "Substring not found";
+            }
+        }
+
+        function getCharacter() {
+            var str = document.getElementById("inputString").value;
+            var index = parseInt(document.getElementById("inputIndex").value);
+            if (index >= 0 && index < str.length) {
+                document.getElementById("characterResult").innerHTML = "Character at index " + index + ": " + str.charAt(index);
+            } else {
+                document.getElementById("characterResult").innerHTML = "Invalid index";
+            }
+        }
+
+        function concatenateStrings() {
+            var str1 = document.getElementById("inputString1").value;
+            var str2 = document.getElementById("inputString2").value;
+            var result = str1.concat(str2);
+            document.getElementById("concatenationResult").innerHTML = "Concatenated string: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>String Manipulation</h1>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString"><br><br>
+
+    <label for="inputSubstring">Enter a substring to search:</label>
+    <input type="text" id="inputSubstring">
+    <button onclick="searchSubstring()">Search</button>
+    <p id="searchResult"></p><br>
+
+    <hr>
+    <label for="inputIndex">Enter an index:</label>
+    <input type="number" id="inputIndex">
+    <button onclick="getCharacter()">Get Character</button>
+    <p id="characterResult"></p><br>
+<hr>
+    <label for="inputString1">Enter first string:</label>
+    <input type="text" id="inputString1"><br><br>
+
+    <label for="inputString2">Enter second string:</label>
+    <input type="text" id="inputString2">
+    <button onclick="concatenateStrings()">Concatenate</button>
+    <p id="concatenationResult"></p>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Event Handler</title>
+    <script>
+        function handleClick(event) {
+            // Determine if Shift or Ctrl was held during the click
+            var shiftPressed = event.shiftKey;
+            var ctrlPressed = event.ctrlKey;
+
+            // Display appropriate message in the alert dialog
+            
+            if (shiftPressed) {
+                alert("Shift key was held during the click.\nEvent Name: " + event.type);
+            } else if (ctrlPressed) {
+                alert("Ctrl key was held during the click.\nEvent Name: " + event.type + "\nElement Name: " + event.target.nodeName);
+            } else {
+                alert("Click event detected.\nEvent Name: " + event.type);
+            }
+        }
+    </script>
+</head>
+<body onclick="handleClick(event)">
+    <h1>Click Event Handler</h1>
+    <p>Click anywhere on the page.</p>
+</body>
+</html>

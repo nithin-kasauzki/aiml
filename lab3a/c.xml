@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="c.xsl" ?>
+<Students>
+    <Student>
+        <name>John</name>
+        <rollno>CS101</rollno>
+        <department>CSE</department>
+        <cgpa>9.5</cgpa>
+    </Student>
+    <Student>
+        <name>Williams</name>
+        <rollno>CE034</rollno>
+        <department>CIVIL</department>
+        <cgpa>7.4</cgpa>
+    </Student>
+    <Student>
+        <name>Rohit</name>
+        <rollno>EC087</rollno>
+        <department>ECE</department>
+        <cgpa>8.7</cgpa>
+    </Student>
+</Students>
+
+
+<!-- xsltproc Students.xsl students.xml -->

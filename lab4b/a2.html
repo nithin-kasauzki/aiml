@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 200px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px;
+        }
+
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        function searchLastOccurrence() {
+            var str = document.getElementById("inputString").value;
+            var substring = document.getElementById("searchSubstring").value;
+            var lastIndex = -1;
+            for (var i = 0; i < str.length; i++) {
+                if (str.substring(i, i + substring.length) === substring) {
+                    lastIndex = i;
+                }
+            }
+            
+            displayOutput("Last occurrence index: " + lastIndex);
+        }
+
+        function extractSubstring() {
+            var str = document.getElementById("inputString").value;
+            var start = parseInt(document.getElementById("startPosition").value);
+            var end = parseInt(document.getElementById("endPosition").value);
+            var substring = "";
+            
+            for (var i = start; i < end && i < str.length; i++) {
+                substring += str[i];
+            }
+            displayOutput("Extracted substring: " + substring);
+        }
+
+        function splitString() {
+            var str = document.getElementById("inputString").value;
+            var delimiter = document.getElementById("splitDelimiter").value;
+
+           
+            var substrings = str.split(delimiter);
+
+           
+            displayOutput("Split substrings: " + substrings.join(", "));
+        }
+
+        function resetForm() {
+            document.getElementById("inputString").value = "";
+            document.getElementById("searchSubstring").value = "";
+            document.getElementById("startPosition").value = "";
+            document.getElementById("endPosition").value = "";
+            document.getElementById("splitDelimiter").value = "";
+            clearOutput();
+        }
+
+        
+
+        function displayOutput(output) {
+            document.getElementById("output").innerHTML = output;
+        }
+
+        function clearOutput() {
+            document.getElementById("output").innerHTML = "";
+        }
+    </script>
+</head>
+<body style="margin: 20px;">
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <br>
+    <label for="searchSubstring">Enter a substring:</label>
+    <input type="text" id="searchSubstring" placeholder="Enter a substring">
+    <button onclick="searchLastOccurrence()">Search Last Occurrence</button>
+    <br>
+    <label for="startPosition">Enter start, end position:</label>
+    <input type="text" id="startPosition" placeholder="Enter start position">
+    <input type="text" id="endPosition" placeholder="Enter end position">
+    <button onclick="extractSubstring()">Extract Substring</button>
+    <br>
+    <label for="splitDelimiter">Enter a delimiter:</label>
+    <input type="text" id="splitDelimiter" placeholder="Enter a delimiter">
+    <button onclick="splitString()">Split String</button>
+    <br>
+    <button onclick="resetForm()">Reset</button>
+
+    <div id="output"></div>
+</body>
+</html>

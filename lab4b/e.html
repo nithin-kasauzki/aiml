@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Length Count</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word count</h1>
+    <textarea id="textArea" rows="10" cols="50"></textarea>
+    <button onclick="countWords()">Count Words</button>
+    <button onclick="resetTable()">Reset Table</button>
+    <p></p>
+    <table id="wordCountTable">
+        <tr>
+            <th>Word Length</th>
+            <th>Count</th>
+        </tr>
+    </table>
+
+    <script>
+        function countWords() {
+            var text = document.getElementById("textArea").value;
+            var words = text.split(/\s+/);
+            var wordCount = {};
+
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i].replace(/[^\w\s]|_/g, "").toLowerCase();
+                var length = word.length;
+
+                if (length > 0) {
+                    if (!wordCount[length]) {
+                        wordCount[length] = 0;
+                    }
+                    wordCount[length]++;
+                }
+            }
+
+            var table = document.getElementById("wordCountTable");
+            for (var length in wordCount) {
+                var count = wordCount[length];
+                var row = table.insertRow();
+                var lengthCell = row.insertCell();
+                var countCell = row.insertCell();
+                lengthCell.innerHTML = length;
+                countCell.innerHTML = count;
+            }
+        }
+
+        function resetTable() {
+            var table = document.getElementById("wordCountTable");
+            while (table.rows.length > 1) {
+                table.deleteRow(1);
+            }
+        }
+    </script>
+</body>
+</html>

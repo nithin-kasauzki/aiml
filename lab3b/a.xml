@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bib SYSTEM "a.dtd">
+<bib>
+    <!-- please change the data  -->
+    
+    <book year="2022">
+        <title>Book Title</title>
+        <author>
+            <last>Last Name</last>
+            <first>First Name</first>
+        </author>
+        <publisher>Publisher Name</publisher>
+        <price>19.99</price>
+    </book>
+    <book year="2023">
+        <title>Another Book Title</title>
+        <editor>
+            <last>Last Name</last>
+            <first>First Name</first>
+            <affiliation>Affiliation</affiliation>
+        </editor>
+        <publisher>Another Publisher Name</publisher>
+        <price>24.99</price>
+    </book>
+</bib>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+    <script>
+        function isPrimeSquareRoot(number) {
+            if (number <= 1) {
+                return false;
+            }
+
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function isPrimeHalf(number) {
+            if (number <= 1) {
+                return false;
+            }
+
+            for (let i = 2; i <= number / 2; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function findPrimes() {
+            let primesSquareRoot = [];
+            let primesHalf = [];
+            let textareaResult = document.getElementById("result");
+
+            let startSquareRoot = performance.now();
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrimeSquareRoot(i)) {
+                    primesSquareRoot.push(i);
+                }
+            }
+            let endSquareRoot = performance.now();
+
+            let startHalf = performance.now();
+            for (let i = 1; i <= 1000; i++) {
+                if (isPrimeHalf(i)) {
+                    primesHalf.push(i);
+                }
+            }
+            let endHalf = performance.now();
+
+            textareaResult.value = "Using Square Root: " + (endSquareRoot - startSquareRoot) + " milliseconds\n";
+            textareaResult.value += "Prime Numbers: " + primesSquareRoot.join(", ") + "\n\n";
+            textareaResult.value += "Using n/2: " + (endHalf - startHalf) + " milliseconds\n";
+            textareaResult.value += "Prime Numbers: " + primesHalf.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h2>Prime Number Finder</h2>
+    <button onclick="findPrimes()">Find Prime Numbers</button>
+    <br>
+    <textarea id="result" rows="30" cols="50" readonly></textarea>
+</body>
+</html>

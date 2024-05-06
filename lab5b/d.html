@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divided Image Puzzle</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: auto;
+    }
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<table id="puzzle-board">
+  <tr>
+    <td id="cell00"></td>
+    <td id="cell01"></td>
+    <td id="cell02"></td>
+    <td id="cell03"></td>
+  </tr>
+  <tr>
+    <td id="cell10"></td>
+    <td id="cell11"></td>
+    <td id="cell12"></td>
+    <td id="cell13"></td>
+  </tr>
+  <tr>
+    <td id="cell20"></td>
+    <td id="cell21"></td>
+    <td id="cell22"></td>
+    <td id="cell23"></td>
+  </tr>
+  <tr>
+    <td id="cell30"></td>
+    <td id="cell31"></td>
+    <td id="cell32"></td>
+    <td id="cell33"></td>
+  </tr>
+</table>
+
+<script>
+  var imageSrc = 'img.jpg'; // Specify the path to your image here
+
+  var image = new Image();
+  image.src = imageSrc;
+  image.onload = function() {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    canvas.width = image.width;
+    canvas.height = image.height;
+    context.drawImage(image, 0, 0);
+
+    var pieceWidth = image.width / 4;
+    var pieceHeight = image.height / 4;
+
+    var pieces = [];
+    for (var y = 0; y < 4; y++) {
+      for (var x = 0; x < 4; x++) {
+        var piece = document.createElement('canvas');
+        piece.width = pieceWidth;
+        piece.height = pieceHeight;
+        piece.getContext('2d').drawImage(canvas, x * pieceWidth, y * pieceHeight, pieceWidth, pieceHeight, 0, 0, pieceWidth, pieceHeight);
+        pieces.push(piece);
+      }
+    }
+
+    // Randomly select one piece to discard
+    var indexToRemove = Math.floor(Math.random() * pieces.length);
+    pieces.splice(indexToRemove, 1);
+
+    // Shuffle the cells randomly
+    var cells = document.querySelectorAll('#puzzle-board td');
+    cells = Array.prototype.slice.call(cells);
+    cells.sort(function() { return 0.5 - Math.random(); });
+
+    // Assign pieces to the shuffled cells
+    for (var i = 0; i < pieces.length; i++) {
+      cells[i].appendChild(pieces[i]);
+    }
+  };
+</script>
+
+</body>
+</html>
